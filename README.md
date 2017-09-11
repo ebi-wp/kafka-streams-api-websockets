@@ -16,33 +16,35 @@ Tools:
 How to run:
 --------
 
-0. Follow step 1 and step 2 of [Kafka Quickstart](https://kafka.apache.org/quickstart) 
+1. Follow step 1 and step 2 of [Kafka Quickstart](https://kafka.apache.org/quickstart) 
 
-1. Create two topics: data-in and data-out
+2. Create two topics: data-in and data-out
 
   ```bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic data-in```
   
   ```bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic data-out```
 
-2. Clone and build java project
+3. Clone and build java project
     
    ```git clone https://github.com/sajmmon/kafka-streaming-websockets.git```
+   
    ```cd kafka-streaming-websockets```
+   
    ```mvn clean package```
 
-3. Run producer
+4. Run producer
 
    ```java -cp target/shade-kafka-streaming-websockets-0.1.0.jar uk.ac.ebi.produce.KafkaExampleProducer```
    
-4. Run streaming client
+5. Run streaming client
 
    ```java -cp target/shade-kafka-streaming-websockets-0.1.0.jar uk.ac.ebi.streaming.KafkaStreamingMain```
    
-5. Run spring boot
+6. Run spring boot
 
    ```java -cp target/shade-kafka-streaming-websockets-0.1.0.jar uk.ac.ebi.Application```
 
-6. See live dashboard in [localhost:8080](http://localhost:8080)
+7. See live dashboard in [localhost:8080](http://localhost:8080)
 
 When you click "Connect" you should see:
 
