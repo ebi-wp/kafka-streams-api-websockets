@@ -1,10 +1,3 @@
-var pgPoints = {};
-var hxPoints = {};
-var oyPoints = {};
-var hhPoints = {};
-
-var labels = {};
-
 var maxLabels = 60;
 
 var config = {
@@ -16,7 +9,7 @@ var config = {
             backgroundColor: window.chartColors.red,
             borderColor: window.chartColors.red,
             fill: false,
-            data: [],
+            data: []
         }, {
             label: "PG",
             backgroundColor: window.chartColors.blue,
@@ -68,16 +61,8 @@ window.onload = function() {
 
 };
 
-document.getElementById('randomizeData').addEventListener('click', function() {
-    config.data.datasets.forEach(function(dataset) {
-        dataset.data.forEach(function(dataObj) {
-            dataObj.y = randomScalingFactor();
-        });
-    });
 
-    window.myLine.update();
-});
-
+// Here I assume we receive messages in correct order
 function addDataToChart(message){
 
     var splitMessage = message.split(" ");
@@ -87,38 +72,47 @@ function addDataToChart(message){
         var timestamp = splitMessage[1];
         var count = splitMessage[2];
         var avg = splitMessage[3];
-        // console.log(splitMessage);
-        // TODO: add datapoint to chart
+
+        // Add point if new
+        if (config.data.labels.indexOf(timestamp) < 0)
+            addOne(timestamp);
+
+        // Remove one point if already too many
+        if (config.data.labels.length > maxLabels)
+            removeOne();
+
+        // Update point
+        config.data.datasets.forEach(function(dataset, datasetIndex) {
+            if (dataset.label == clusterName){
+                dataset.data.forEach(function(point, pointIdx) {
+                    if (point.x == timestamp) point.y = avg;
+                });
+            }
+        });
+
     } else {
         console.log(message);
     }
         window.myLine.update();
 }
 
-document.getElementById('addData').addEventListener('click', function() {
-    if (config.data.datasets.length > 0) {
-        var lastTick = config.data.labels.length;
-        var newTick = lastTick + 1;
-        console.log(newTick);
 
-        config.data.labels.push(newTick.toString());
+function addOne(timestamp) {
 
-        for (var index = 0; index < config.data.datasets.length; ++index) {
-            config.data.datasets[index].data.push({
-                x: newTick.toString(),
-                y: randomScalingFactor()
-            });
-        }
-
-        window.myLine.update();
-        console.log(config.data);
-    }
-});
-
-document.getElementById('removeData').addEventListener('click', function() {
+    config.data.labels.push(timestamp);
     config.data.datasets.forEach(function(dataset, datasetIndex) {
-        dataset.data.pop();
+        dataset.data.push({x: timestamp, y: undefined});
     });
 
     window.myLine.update();
-});
+}
+
+function removeOne() {
+
+    config.data.labels.shift();
+    config.data.datasets.forEach(function(dataset, datasetIndex) {
+        dataset.data.shift();
+    });
+
+    window.myLine.update();
+}

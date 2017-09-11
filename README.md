@@ -7,17 +7,16 @@ Read detailed description in:  [EBI TSC Blog](http://www.ebi.ac.uk/about/technol
 Tools:
 -------------------
 
-0. Java 8+
-0. Apache Kafka 0.11
-1. Spring Boot
-2. STOMP 
-3. Chart.js
+1. Java 8+
+2. Apache Kafka 0.11
+3. Spring Boot
+4. STOMP 
+5. Chart.js
 
 How to run:
 --------
 
-
-0. Follow step 1 and step 2 of (Kafka Quickstart)[https://kafka.apache.org/quickstart] 
+0. Follow step 1 and step 2 of [Kafka Quickstart](https://kafka.apache.org/quickstart) 
 
 1. Create two topics: data-in and data-out
 
@@ -26,23 +25,29 @@ How to run:
 
 2. Clone and build java project
     
-   `https://github.com/nielsutrecht/kafka-websockets.git`
+   `git clone https://github.com/sajmmon/kafka-streaming-websockets.git`
    `cd kafka-streaming-websockets`
    `mvn clean package`
 
 3. Run producer
 
-   `java -cp target/shade... uk.ac.ebi.Main`
+   `java -cp target/shade-kafka-streaming-websockets-0.1.0.jar uk.ac.ebi.produce.KafkaExampleProducer`
    
-4. Run streaming processor
+4. Run streaming client
 
-   `java -cp target/shade... uk.ac.ebi.Main`
+   `java -cp target/shade-kafka-streaming-websockets-0.1.0.jar uk.ac.ebi.streaming.KafkaStreamingMain`
    
 5. Run spring boot
 
-    `java -cp target/...`
+   `java -cp target/shade-kafka-streaming-websockets-0.1.0.jar uk.ac.ebi.Application`
 
-6. See live dashboard in (localhost:8080)[http://localhost:8080]
+6. See live dashboard in [localhost:8080](http://localhost:8080)
+
+When you click "Connect" you should see:
+
+
+And after some time more data points will be visible:
+
 
 Recommended resources:
 ----------------------
