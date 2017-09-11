@@ -2,7 +2,7 @@
 
 This is an example on how to use Kafka Streamin API to aggregate logs and display results online in a dashboard. 
 
-Read detailed description in:  [EBI TSC Blog](http://www.ebi.ac.uk/about/technology)
+Blog post:  [EBI TSC Blog](http://www.ebi.ac.uk/about/technology)
 
 Tools:
 -------------------
