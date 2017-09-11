@@ -1,3 +1,11 @@
+build
+target
+.DS_Store
+.idea/
+kafka-streaming-websockets.iml
+.mvn/
+
+
 # Compiled class file
 *.class
 
