@@ -43,6 +43,8 @@ How to run:
 
 6. See live dashboard in [localhost:8080](http://localhost:8080)
 
+![Live dashboard disconnected](images/localhost_8080.png)
+
 When you click "Connect" you should see:
 
 
