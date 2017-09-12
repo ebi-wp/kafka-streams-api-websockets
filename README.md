@@ -9,9 +9,10 @@ Tools:
 
 1. Java 8+
 2. Apache Kafka 0.11
-3. Spring Boot
-4. STOMP 
-5. Chart.js
+3. Apache Kafka Streams API
+4. Spring Boot
+5. STOMP 
+6. Chart.js
 
 How to run:
 --------
