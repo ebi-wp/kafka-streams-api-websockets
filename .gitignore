@@ -4,7 +4,7 @@ target
 .idea/
 kafka-streaming-websockets.iml
 .mvn/
-
+nohup.out
 
 # Compiled class file
 *.class
