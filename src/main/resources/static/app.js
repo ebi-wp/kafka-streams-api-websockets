@@ -14,14 +14,17 @@ function setConnected(connected) {
 }
 
 function connect() {
-    var socket = new SockJS('/jdisp-websocket');
+    var socket = new SockJS('/jdisp-websocket-endpoint');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
         setConnected(true);
         console.log('Connected: ' + frame);
-        stompClient.subscribe('/dashboard/stream', function (message) {
+        stompClient.subscribe('/dashboard/stream-in', function (message) {
             showMessage(message.body);
         });
+        stompClient.subscribe('/dashboard/stream-out', function (message) {
+            addDataToChart(message.body);
+        })
     });
 }
 
@@ -36,7 +39,6 @@ function disconnect() {
 function showMessage(message) {
 
     countMessages++;
-    addDataToChart(message);
     $("#stream").append("<tr><td>" + message + "</td></tr>");
     if(countMessages > 10){
         // console.log(countMessages);
