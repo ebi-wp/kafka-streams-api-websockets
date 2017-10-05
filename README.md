@@ -1,6 +1,6 @@
 # Live dashboard with Kafka Streams and Websockets
 
-This is an example on how to use Kafka Streamin API to aggregate logs and display results online in a dashboard. 
+This is an example on how to use Kafka Streams API to aggregate logs and display results online in a dashboard. 
 
 Genome Campus Software Craftsmanship [Meetup](https://www.meetup.com/pl-PL/Genome-Campus-Software-Craftsmanship-Community/events/243518985/)
 
@@ -27,7 +27,7 @@ How to run:
 
 3. Clone and build java project
     
-   ```git clone https://github.com/sajmmon/kafka-streaming-websockets.git```
+   ```git clone https://github.com/ebi-wp/kafka-streams-api-websockets.git```
    
    ```cd kafka-streaming-websockets```
    
