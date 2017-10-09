@@ -60,3 +60,11 @@ Recommended resources:
 3. [Apache Kafka with Spring (by Baeldung)](http://www.baeldung.com/spring-kafka)
 4. [Kafka Streams Examples (by Confluent)](https://github.com/confluentinc/examples/tree/3.3.0-post/kafka-streams)
 5. [Creating custom serializers (by Niels.nu)](http://niels.nu/blog/2016/kafka-custom-serializers.html)
+
+Issues:
+-------
+If you run without internet access you might need to add following to *config/server.properties*
+```
+advertised.host.name = localhost
+advertised.port = 9092
+```
