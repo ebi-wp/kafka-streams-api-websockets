@@ -49,7 +49,7 @@ How to run:
 
 When you click "Connect" you should see:
 
-![Live dashboard disconnected](images/dashboard.png)
+![Live dashboard](docs/img/dashboard.png)
 
 
 Recommended resources:
