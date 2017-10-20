@@ -1,4 +1,4 @@
-# Live dashboard with Kafka Streams and Websockets
+# Live dashboard with Kafka Streams API
 
 This is an example on how to use Kafka Streams API to aggregate logs and display results online in a dashboard. 
 
