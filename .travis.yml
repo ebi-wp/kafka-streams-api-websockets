@@ -1,1 +1,9 @@
 language: java
+deploy:
+  provider: releases
+  api_key: $GITHUB_TOKEN
+  file: "target/shade-kafka-streaming-websockets-0.1.0.jar"
+  skip_cleanup: true
+  on:
+    tags: true
+  overwrite: true
